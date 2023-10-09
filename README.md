@@ -15,7 +15,9 @@ These are non SRD rules and resources created for the varying Dungeons and Drago
 All content should be located in a top-level 5e folder. For example:
 
 `5e/wotc`
+
 `5e/kobold-press`
+
 `5e/open5e`
 
 
@@ -24,6 +26,7 @@ All content should be located in a top-level 5e folder. For example:
 All content should be located in a top-level 3.5 folder. For example:
 
 `3.5/plunketts`
+
 `3.5/kobold-press`
 
 ## Contributing
