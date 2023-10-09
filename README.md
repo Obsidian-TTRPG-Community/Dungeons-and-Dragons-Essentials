@@ -10,7 +10,7 @@ These are non SRD rules and resources created for the varying Dungeons and Drago
 
 ## Format
 
-### 5e Content
+### 5e content
 
 All content should be located in a top-level 5e folder. For example:
 
@@ -20,14 +20,18 @@ All content should be located in a top-level 5e folder. For example:
 
 `5e/open5e`
 
+`5e/templates`
 
-### 3.5e Content 
+
+### 3.5e content 
 
 All content should be located in a top-level 3.5 folder. For example:
 
 `3.5/plunketts`
 
 `3.5/kobold-press`
+
+`3.5/templates`
 
 ## Contributing
 
