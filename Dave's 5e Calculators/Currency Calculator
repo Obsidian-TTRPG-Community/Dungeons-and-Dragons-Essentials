@@ -1,0 +1,78 @@
+---
+title: Currency Calculator
+aliases: 
+amountCoin: 30300
+CoinsCopper: 100
+CoinsSilver: 5
+CoinsElectrum: 3
+CoinsGold: 300
+CoinsPlatinum: 0
+CoinsAdamantine: 0
+PartySize: 6
+metric: 1
+unit: lbs
+---
+## Input
+
+| Party Size                                  |                    Copper                     |                    Silver                     |                    Electrum                     |                    Gold                     |                    Platinum                     |                    Adamantine                     | Metric? |
+| ------------------------------------------- |:---------------------------------------------:|:---------------------------------------------:|:-----------------------------------------------:|:-------------------------------------------:|:-----------------------------------------------:|:-------------------------------------------------:|:-:|
+| `INPUT[number(class(nb-mb-css)):PartySize]` | `INPUT[number(class(nb-mb-css)):CoinsCopper]` | `INPUT[number(class(nb-mb-css)):CoinsSilver]` | `INPUT[number(class(nb-mb-css)):CoinsElectrum]` | `INPUT[number(class(nb-mb-css)):CoinsGold]` | `INPUT[number(class(nb-mb-css)):CoinsPlatinum]` | `INPUT[number(class(nb-mb-css)):CoinsAdamantine]` |`INPUT[toggle(offValue(1), onValue(0.4536)):metric]` |
+
+## Amount
+
+> [!column| 2 no-t]+
+>> [!note | clean no-t]
+>> 
+>> ### Conversion Table
+>> | Type | Copper | Silver | Electrum | Gold | Platinum | Adamantine |
+>> |-|:-:|:-:|:-:|:-:|:-:|:-:|
+>> | Copper | `VIEW[{CoinsCopper}]` | `VIEW[{CoinsCopper}/10]` | `VIEW[{CoinsCopper}/50]` | `VIEW[{CoinsCopper}/100]` | `VIEW[{CoinsCopper}/1000]` | `VIEW[{CoinsCopper}/10000]` |
+>> | Silver |  `VIEW[{CoinsSilver}*10]` | `VIEW[{CoinsSilver}]` | `VIEW[{CoinsSilver}/5]` | `VIEW[{CoinsSilver}/10]` | `VIEW[{CoinsSilver}/100]` | `VIEW[{CoinsSilver}/1000]` |
+>> | Electrum |  `VIEW[{CoinsElectrum}*50]` | `VIEW[{CoinsElectrum}*5]` | `VIEW[{CoinsElectrum}]` | `VIEW[{CoinsElectrum}/2]` | `VIEW[{CoinsElectrum}/20]`  | `VIEW[{CoinsElectrum}/200]` |
+>> | Gold |    `VIEW[{CoinsGold}*100]` | `VIEW[{CoinsGold}*10]` | `VIEW[{CoinsGold}*2]` | `VIEW[{CoinsGold}]` | `VIEW[{CoinsGold}/10]` | `VIEW[{CoinsGold}/100]` |
+>> | Platinum |  `VIEW[{CoinsPlatinum}*1000]` | `VIEW[{CoinsPlatinum}*100]` | `VIEW[{CoinsPlatinum}*20]` | `VIEW[{CoinsPlatinum}*10]` | `VIEW[{CoinsPlatinum}]` | `VIEW[{CoinsPlatinum}/10]` |
+>> | Adamantine |  `VIEW[{CoinsAdamantine}*10000]` | `VIEW[{CoinsAdamantine}*1000]` | `VIEW[{CoinsAdamantine}*200]` | `VIEW[{CoinsAdamantine}*100]` | `VIEW[{CoinsAdamantine}*10]` | `VIEW[{CoinsAdamantine}]` |
+>
+>
+>> [!note | clean no-t]
+>> ###  Division of money  
+>>  | Denomination  | # | Total Per Player |
+>> -|:-:|:-:|
+>> | Copper   | `VIEW[{amountCoin}]` | `VIEW[{amountCoin}/{PartySize}]` |
+>> | Silver   | `VIEW[round(0.1*{amountCoin}, 2)]` | `VIEW[round({amountCoin}/(10*{PartySize}), 2)]` |
+>> | Electrum | `VIEW[round(0.02*{amountCoin}, 2)]` | `VIEW[round({amountCoin}/(50*{PartySize}), 2)]` |
+>> | Gold     | `VIEW[round(0.01*{amountCoin}, 2)]` | `VIEW[round({amountCoin}/(100*{PartySize}), 2)]` |
+>> | Platinum | `VIEW[round(0.001*{amountCoin}, 2)]` | `VIEW[round({amountCoin}/(1000*{PartySize}), 2)]` |
+>> | Adamantine | `VIEW[round(0.0001*{amountCoin}, 2)]` | `VIEW[round({amountCoin}/(1000*{PartySize}), 2)]` |
+
+`VIEW[{CoinsCopper}+({CoinsSilver}*10)+({CoinsElectrum}*50)+({CoinsGold}*100)+({CoinsPlatinum}*1000)+({CoinsAdamantine}*10000)][math(hidden):amountCoin]`
+ 
+## Weight
+
+> [!column| 2 no-t]+
+>> [!note | clean no-t]
+>> 
+>> ### Conversion Table
+>> | Denomination | Copper | Silver | Electrum | Gold | Platinum | Adamantine |
+>> |-|:-:|:-:|:-:|:-:|:-:|:-:|
+>> | Copper | `VIEW[round({metric}*{CoinsCopper}/50, 2)]` `VIEW[{unit}]` | `VIEW[round({metric}*{CoinsCopper}/500, 2)]` `VIEW[{unit}]`| `VIEW[round({metric}*{CoinsCopper}/2500, 2)]` `VIEW[{unit}]`| `VIEW[round({metric}*{CoinsCopper}/5000, 2)]` `VIEW[{unit}]`| `VIEW[round({metric}*{CoinsCopper}/50000, 2)]` `VIEW[{unit}]`| `VIEW[round({metric}*{CoinsCopper}/500000, 2)]` `VIEW[{unit}]`|
+>> | Silver |  `VIEW[round({metric}*{CoinsSilver}/5, 2)]` `VIEW[{unit}]`| `VIEW[round({metric}*{CoinsSilver}/50, 2)]` `VIEW[{unit}]`| `VIEW[round({metric}*{CoinsSilver}/250, 2)]` `VIEW[{unit}]`| `VIEW[round({metric}*{CoinsSilver}/500, 2)]` `VIEW[{unit}]`| `VIEW[round({metric}*{CoinsSilver}/5000, 2)]` `VIEW[{unit}]`| `VIEW[round({metric}*{CoinsSilver}/50000, 2)]` `VIEW[{unit}]`|
+>> | Electrum |  `VIEW[round(10*{metric}*{CoinsElectrum}, 2)]` `VIEW[{unit}]`| `VIEW[round({metric}*{CoinsElectrum}, 2)]` `VIEW[{unit}]`| `VIEW[round({metric}*{CoinsElectrum}/50, 2)]` `VIEW[{unit}]`| `VIEW[round({metric}*{CoinsElectrum}/100, 2)]` `VIEW[{unit}]`| `VIEW[round({metric}*{CoinsElectrum}/1000, 2)]`  `VIEW[{unit}]`| `VIEW[round({metric}*{CoinsElectrum}/10000, 2)]` `VIEW[{unit}]` |
+>> | Gold | `VIEW[round(2*{metric}*{CoinsGold}, 2)]` `VIEW[{unit}]`| `VIEW[round({metric}*{CoinsGold}/5, 2)]` `VIEW[{unit}]`| `VIEW[round(20*{metric}*{CoinsGold}/5, 2)]` `VIEW[{unit}]`| `VIEW[round({metric}*{CoinsGold}/50, 2)]` `VIEW[{unit}]`| `VIEW[round({metric}*{CoinsGold}/500, 2)]` `VIEW[{unit}]`| `VIEW[round({metric}*{CoinsGold}/5000, 2)]` `VIEW[{unit}]`|
+>> | Platinum |  `VIEW[round(20*{metric}*{CoinsPlatinum}, 2)]` `VIEW[{unit}]`| `VIEW[round(2*{metric}*{CoinsPlatinum}, 2)]` `VIEW[{unit}]`| `VIEW[round(200*{metric}*{CoinsPlatinum}/5, 2)]` `VIEW[{unit}]`| `VIEW[round({metric}*{CoinsPlatinum}/5, 2)]` `VIEW[{unit}]`| `VIEW[round({metric}*{CoinsPlatinum}/50, 2)]` `VIEW[{unit}]`| `VIEW[round({metric}*{CoinsPlatinum}/500, 2)]` `VIEW[{unit}]` |
+>> | Adamantine |  `VIEW[round(200*{metric}*{CoinsAdamantine}, 2)]` `VIEW[{unit}]`| `VIEW[round(20*{metric}*{CoinsAdamantine}, 2)]` `VIEW[{unit}]`| `VIEW[round(2000*{metric}*{CoinsAdamantine}/5, 2)]` `VIEW[{unit}]`| `VIEW[round(2*{metric}*{CoinsAdamantine}, 2)]` `VIEW[{unit}]`| `VIEW[round({metric}*{CoinsAdamantine}/5, 2)]` `VIEW[{unit}]`| `VIEW[round({metric}*{CoinsAdamantine}/50, 2)]` `VIEW[{unit}]`|
+>
+>
+>> [!note | clean no-t]
+>> ###  Division of money  
+>>  | Denomination | Weight | Total Per Player |
+>> -|:-:|:-:|
+>> | Copper   | `VIEW[round({metric}*{amountCoin}/50, 2)]` `VIEW[{unit}]`| `VIEW[round({metric}*{amountCoin}/(50*{PartySize}), 2)]` `VIEW[{unit}]`|
+>> | Silver   | `VIEW[round({metric}*{amountCoin}/500, 2)]` `VIEW[{unit}]`| `VIEW[round({metric}*{amountCoin}/(500*{PartySize}), 2)]` `VIEW[{unit}]`|
+>> | Electrum | `VIEW[round({metric}*{amountCoin}/2500, 2)]` `VIEW[{unit}]`| `VIEW[round({metric}*{amountCoin}/(1000*{PartySize}), 2)]` `VIEW[{unit}]`|
+>> | Gold     | `VIEW[round({metric}*{amountCoin}/5000, 2)]` `VIEW[{unit}]` | `VIEW[round({metric}*{amountCoin}/(5000*{PartySize}), 2)]` `VIEW[{unit}]`|
+>> | Platinum | `VIEW[round({metric}*{amountCoin}/50000, 2)]` `VIEW[{unit}]`| `VIEW[round({metric}*{amountCoin}/(50000*{PartySize}), 2)]` `VIEW[{unit}]`|
+>> | Gold     | `VIEW[round({metric}*{amountCoin}/5000, 2)]` `VIEW[{unit}]` | `VIEW[round({metric}*{amountCoin}/(5000*{PartySize}), 2)]` `VIEW[{unit}]`|
+>> | Adamantine | `VIEW[round({metric}*{amountCoin}/500000, 2)]` `VIEW[{unit}]`| `VIEW[round({metric}*{amountCoin}/(500000*{PartySize}), 2)]` `VIEW[{unit}]`|
+
+`VIEW[{metric} < 1 ? "kg" : "lbs"][math(hidden):unit]`
