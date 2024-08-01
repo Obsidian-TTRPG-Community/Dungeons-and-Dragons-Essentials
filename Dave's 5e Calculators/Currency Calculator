@@ -1,14 +1,14 @@
 ---
 title: Currency Calculator
 aliases: 
-amountCoin: 30300
-CoinsCopper: 100
-CoinsSilver: 5
-CoinsElectrum: 3
+amountCoin: 30000
+CoinsCopper: 0
+CoinsSilver: 0
+CoinsElectrum: 0
 CoinsGold: 300
 CoinsPlatinum: 0
 CoinsAdamantine: 0
-PartySize: 6
+PartySize: 4
 metric: 1
 unit: lbs
 ---
@@ -20,8 +20,8 @@ unit: lbs
 
 ## Amount
 
-> [!column| 2 no-t]+
->> [!note | clean no-t]
+> [!div| grid clean no-t]+
+>> [!note | span-2 clean no-t]
 >> 
 >> ### Conversion Table
 >> | Type | Copper | Silver | Electrum | Gold | Platinum | Adamantine |
@@ -49,8 +49,8 @@ unit: lbs
  
 ## Weight
 
-> [!column| 2 no-t]+
->> [!note | clean no-t]
+> [!div| grid clean no-t]+
+>> [!note | span-2 clean no-t]
 >> 
 >> ### Conversion Table
 >> | Denomination | Copper | Silver | Electrum | Gold | Platinum | Adamantine |
@@ -58,9 +58,9 @@ unit: lbs
 >> | Copper | `VIEW[round({metric}*{CoinsCopper}/50, 2)]` `VIEW[{unit}]` | `VIEW[round({metric}*{CoinsCopper}/500, 2)]` `VIEW[{unit}]`| `VIEW[round({metric}*{CoinsCopper}/2500, 2)]` `VIEW[{unit}]`| `VIEW[round({metric}*{CoinsCopper}/5000, 2)]` `VIEW[{unit}]`| `VIEW[round({metric}*{CoinsCopper}/50000, 2)]` `VIEW[{unit}]`| `VIEW[round({metric}*{CoinsCopper}/500000, 2)]` `VIEW[{unit}]`|
 >> | Silver |  `VIEW[round({metric}*{CoinsSilver}/5, 2)]` `VIEW[{unit}]`| `VIEW[round({metric}*{CoinsSilver}/50, 2)]` `VIEW[{unit}]`| `VIEW[round({metric}*{CoinsSilver}/250, 2)]` `VIEW[{unit}]`| `VIEW[round({metric}*{CoinsSilver}/500, 2)]` `VIEW[{unit}]`| `VIEW[round({metric}*{CoinsSilver}/5000, 2)]` `VIEW[{unit}]`| `VIEW[round({metric}*{CoinsSilver}/50000, 2)]` `VIEW[{unit}]`|
 >> | Electrum |  `VIEW[round(10*{metric}*{CoinsElectrum}, 2)]` `VIEW[{unit}]`| `VIEW[round({metric}*{CoinsElectrum}, 2)]` `VIEW[{unit}]`| `VIEW[round({metric}*{CoinsElectrum}/50, 2)]` `VIEW[{unit}]`| `VIEW[round({metric}*{CoinsElectrum}/100, 2)]` `VIEW[{unit}]`| `VIEW[round({metric}*{CoinsElectrum}/1000, 2)]`  `VIEW[{unit}]`| `VIEW[round({metric}*{CoinsElectrum}/10000, 2)]` `VIEW[{unit}]` |
->> | Gold | `VIEW[round(2*{metric}*{CoinsGold}, 2)]` `VIEW[{unit}]`| `VIEW[round({metric}*{CoinsGold}/5, 2)]` `VIEW[{unit}]`| `VIEW[round(20*{metric}*{CoinsGold}/5, 2)]` `VIEW[{unit}]`| `VIEW[round({metric}*{CoinsGold}/50, 2)]` `VIEW[{unit}]`| `VIEW[round({metric}*{CoinsGold}/500, 2)]` `VIEW[{unit}]`| `VIEW[round({metric}*{CoinsGold}/5000, 2)]` `VIEW[{unit}]`|
->> | Platinum |  `VIEW[round(20*{metric}*{CoinsPlatinum}, 2)]` `VIEW[{unit}]`| `VIEW[round(2*{metric}*{CoinsPlatinum}, 2)]` `VIEW[{unit}]`| `VIEW[round(200*{metric}*{CoinsPlatinum}/5, 2)]` `VIEW[{unit}]`| `VIEW[round({metric}*{CoinsPlatinum}/5, 2)]` `VIEW[{unit}]`| `VIEW[round({metric}*{CoinsPlatinum}/50, 2)]` `VIEW[{unit}]`| `VIEW[round({metric}*{CoinsPlatinum}/500, 2)]` `VIEW[{unit}]` |
->> | Adamantine |  `VIEW[round(200*{metric}*{CoinsAdamantine}, 2)]` `VIEW[{unit}]`| `VIEW[round(20*{metric}*{CoinsAdamantine}, 2)]` `VIEW[{unit}]`| `VIEW[round(2000*{metric}*{CoinsAdamantine}/5, 2)]` `VIEW[{unit}]`| `VIEW[round(2*{metric}*{CoinsAdamantine}, 2)]` `VIEW[{unit}]`| `VIEW[round({metric}*{CoinsAdamantine}/5, 2)]` `VIEW[{unit}]`| `VIEW[round({metric}*{CoinsAdamantine}/50, 2)]` `VIEW[{unit}]`|
+>> | Gold | `VIEW[round(2*{metric}*{CoinsGold}, 2)]` `VIEW[{unit}]`| `VIEW[round({metric}*{CoinsGold}/5, 2)]` `VIEW[{unit}]`| `VIEW[round(2*{metric}*{CoinsGold}/50, 2)]` `VIEW[{unit}]`| `VIEW[round({metric}*{CoinsGold}/50, 2)]` `VIEW[{unit}]`| `VIEW[round({metric}*{CoinsGold}/500, 2)]` `VIEW[{unit}]`| `VIEW[round({metric}*{CoinsGold}/5000, 2)]` `VIEW[{unit}]`|
+>> | Platinum |  `VIEW[round(20*{metric}*{CoinsPlatinum}, 2)]` `VIEW[{unit}]`| `VIEW[round(2*{metric}*{CoinsPlatinum}, 2)]` `VIEW[{unit}]`| `VIEW[round(2*{metric}*{CoinsPlatinum}/5, 2)]` `VIEW[{unit}]`| `VIEW[round({metric}*{CoinsPlatinum}/5, 2)]` `VIEW[{unit}]`| `VIEW[round({metric}*{CoinsPlatinum}/50, 2)]` `VIEW[{unit}]`| `VIEW[round({metric}*{CoinsPlatinum}/500, 2)]` `VIEW[{unit}]` |
+>> | Adamantine |  `VIEW[round(200*{metric}*{CoinsAdamantine}, 2)]` `VIEW[{unit}]`| `VIEW[round(20*{metric}*{CoinsAdamantine}, 2)]` `VIEW[{unit}]`| `VIEW[round(20*{metric}*{CoinsAdamantine}/5, 2)]` `VIEW[{unit}]`| `VIEW[round(2*{metric}*{CoinsAdamantine}, 2)]` `VIEW[{unit}]`| `VIEW[round({metric}*{CoinsAdamantine}/5, 2)]` `VIEW[{unit}]`| `VIEW[round({metric}*{CoinsAdamantine}/50, 2)]` `VIEW[{unit}]`|
 >
 >
 >> [!note | clean no-t]
