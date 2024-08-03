@@ -83,3 +83,12 @@ ChaseTime: 0
 > ```
 ^ChaseCalculator
 
+> [!info | bg-c-red]- Requirements
+> * **ITS Theme**
+> * **Meta Bind**
+>  ###### CSS-Snippets:
+> * nb-mb-35.css
+> * nb-mb-45.css
+> * nb-mb-55.css
+> * nb-mb-65.css
+> * my-mb-button.css
