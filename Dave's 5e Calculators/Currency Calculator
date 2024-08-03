@@ -1,24 +1,28 @@
 ---
 title: Currency Calculator
 aliases: 
-amountCoin: 30000
+amountCoin: 0
 CoinsCopper: 0
 CoinsSilver: 0
 CoinsElectrum: 0
-CoinsGold: 300
+CoinsGold: 0
 CoinsPlatinum: 0
 CoinsAdamantine: 0
 PartySize: 4
 metric: 1
 unit: lbs
 ---
+# Currency Calculator
+
 ## Input
 
 | Party Size                                  |                    Copper                     |                    Silver                     |                    Electrum                     |                    Gold                     |                    Platinum                     |                    Adamantine                     | Metric? |
-| ------------------------------------------- |:---------------------------------------------:|:---------------------------------------------:|:-----------------------------------------------:|:-------------------------------------------:|:-----------------------------------------------:|:-------------------------------------------------:|:-:|
-| `INPUT[number(class(nb-mb-css)):PartySize]` | `INPUT[number(class(nb-mb-css)):CoinsCopper]` | `INPUT[number(class(nb-mb-css)):CoinsSilver]` | `INPUT[number(class(nb-mb-css)):CoinsElectrum]` | `INPUT[number(class(nb-mb-css)):CoinsGold]` | `INPUT[number(class(nb-mb-css)):CoinsPlatinum]` | `INPUT[number(class(nb-mb-css)):CoinsAdamantine]` |`INPUT[toggle(offValue(1), onValue(0.4536)):metric]` |
+| :-----------------------------------------: |:---------------------------------------------:|:---------------------------------------------:|:-----------------------------------------------:|:-------------------------------------------:|:-----------------------------------------------:|:-------------------------------------------------:|:-:|
+| `INPUT[number(class(nb-mb-35)):PartySize]` | `INPUT[number(class(nb-mb-85)):CoinsCopper]` | `INPUT[number(class(nb-mb-85)):CoinsSilver]` | `INPUT[number(class(nb-mb-85)):CoinsElectrum]` | `INPUT[number(class(nb-mb-85)):CoinsGold]` | `INPUT[number(class(nb-mb-85)):CoinsPlatinum]` | `INPUT[number(class(nb-mb-85)):CoinsAdamantine]` |`INPUT[toggle(offValue(1), onValue(0.4536)):metric]` |
 
 ## Amount
+
+**Number of coins:** `VIEW[{CoinsCopper}+{CoinsSilver}+{CoinsElectrum}+{CoinsGold}+{CoinsPlatinum}+{CoinsAdamantine}]`
 
 > [!div| grid clean no-t]+
 >> [!note | span-2 clean no-t]
@@ -49,6 +53,8 @@ unit: lbs
  
 ## Weight
 
+**Weight of Coins:** `VIEW[round(0.02*{metric}*({CoinsCopper}+{CoinsSilver}+{CoinsElectrum}+{CoinsGold}+{CoinsPlatinum}+{CoinsAdamantine}), 2)]` `VIEW[{unit}]`
+
 > [!div| grid clean no-t]+
 >> [!note | span-2 clean no-t]
 >> 
@@ -76,3 +82,12 @@ unit: lbs
 >> | Adamantine | `VIEW[round({metric}*{amountCoin}/500000, 2)]` `VIEW[{unit}]`| `VIEW[round({metric}*{amountCoin}/(500000*{PartySize}), 2)]` `VIEW[{unit}]`|
 
 `VIEW[{metric} < 1 ? "kg" : "lbs"][math(hidden):unit]`
+
+
+> [!info | bg-c-red]- Requirements
+> * **ITS Theme**
+> * **Meta Bind**
+>  ###### CSS-Snippets:
+> * nb-mb-35.css
+> * nb-mb-85.css
+> * uneven-columns.css
